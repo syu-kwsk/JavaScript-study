@@ -11,7 +11,8 @@ SPAJAMのために練習しとこうかと
 # プレビュー
 なんか`https://htmlpreview.github.io/?[htmlファイルのURL]`でプレビューできます。<br>
 
-[http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/homepage.html](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/homepage.html)
+* [練習用ホームページ](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/homepage.html)
+* [えのきの占い部屋](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/fortune.html)
 
 # 動作確認方法
  #### 端末からブラウザでファイルを開く
