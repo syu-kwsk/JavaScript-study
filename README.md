@@ -12,7 +12,7 @@ SPAJAMのために練習しとこうかと
 なんか`https://htmlpreview.github.io/?[htmlファイルのURL]`でプレビューできます。<br>
 
 * [練習用ホームページ](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/homepage.html)
-* [えのきの占い部屋](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/fortune.html)
+* [えのきの占い部屋](http://htmlpreview.github.io/?https://github.com/syu-kwsk/JavaScript-study/blob/master/html/src/index.html)
 
 # 動作確認方法
  #### 端末からブラウザでファイルを開く
