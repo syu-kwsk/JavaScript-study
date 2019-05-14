@@ -1,8 +1,8 @@
 
-window.onload = function() {
+window.onmousemove = function() {
     
     sampleBtn.onclick = function(){
-        var button = document.getElementById('sampleBtn');
-        console.dir(button);
+        var img = document.getElementsByTagName('img');
+        console.dir(img);
     }
 };
