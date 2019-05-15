@@ -1,7 +1,11 @@
 
 
 function changePage(tabkind) {
-    window.location.href = 'file:/home/wata/works/JavaScript-study/html/src/' + tabkind;
+    var Url = window.location.href;
+    Url = Url.slice( 0, Url.lastIndexOf('/'));
 
+    window.location.href = Url + tabkind;
+    
+ 
 
 }
