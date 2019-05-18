@@ -10,7 +10,8 @@
 }
 #videoOverlay{
     position: fixed;
-    background-color: red;
+    opacity:0;
+    background-color:black;
     right: 0; 
     bottom: 0;
     width: auto; 
@@ -22,14 +23,19 @@
 }
 
 .tabs {
-  margin-top: 100px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 100%;
-  margin: 0 auto;
-  z-index: 1;
-  position:fixed;
-  min-width: 500px;
+    margin-top: 100px;
+    opacity: 1;    
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    margin: 0 auto;
+    position:fixed;
+    min-width: 500px;
+}
+button{
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 10px 30px;
 }
 
 
