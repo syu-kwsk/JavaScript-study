@@ -1,5 +1,3 @@
-const ncmb = new NCMB("f390f3e88f724de944b3366f0e4d49f1ede7640cf0854765c277f58f5a0f0e12", "1fd4e03f5ad0f688c510b4d8e5c1c1f6fe70e69b852729d33bd215e99aeb7990");
-
 function autoLogin() {
   var currentUser = ncmb.User.getCurrentUser();
   if (currentUser) {
@@ -8,7 +6,7 @@ function autoLogin() {
   } else {
     console.log("未ログインまたは取得に失敗");
   }
-}
+};
 
 function signUp(){
   debugCheckuser();

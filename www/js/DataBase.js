@@ -1,4 +1,5 @@
 function DataBase(){
+
 };
 
 DataBase.prototype = {
@@ -83,7 +84,7 @@ DataBase.prototype = {
     },
 
     show_lan: function() {
-        console.log("1");
+        console.log("show");
         var Data = ncmb.DataStore("Data");
         Data.order("Language",false)
             .fetchAll()
