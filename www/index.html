@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script src="components/loader.js"></script>
+    <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
+    <script src="js/DataBase.js"></script>
+
+    <script>
+      var db = new DataBase();
+      db.show_lan();
+      // Page init event
+      document.addEventListener('init', function(event) {
+      var page = event.target;
+
+      if (page.matches('#login-page')) {
+
+      autoLogin();
+
+      page.querySelector('#signUp-button').onclick = function() {
+      document.querySelector('#navigator').pushPage('signUp.html');
+      };
+
+      } else if (page.matches('#record-page') || page.matches('#people-page') || page.matches('#my-page')) {
+      page.querySelector('#record-button').onclick = function() {
+      document.querySelector('#navigator').resetToPage('record.html');
+      var db = new DataBase();
+      db.show_lan();
+      };
+
+      page.querySelector('#people-button').onclick = function() {
+      document.querySelector('#navigator').resetToPage('people.html');
+      var db = new DataBase();
+      db.everyLanRecord();
+      };
+
+      page.querySelector('#myPage-button').onclick = function() {
+      document.querySelector('#navigator').resetToPage('myPage.html');
+      };
+      }
+
+      });
+
+      if (ons.platform.isIPhoneX()) {
+      document.documentElement.setAttribute('onsflag-iphonex-portrait', '');
+      document.documentElement.setAttribute('onsflag-iphonex-landscape', '');
+      }
+
+    </script>
+  </head>
+  <body>
+    <ons-navigator id="navigator" page="login.html"></ons-navigator>
+
+    <ons-template id="login.html">
+      <ons-page id="login-page">
+        <ons-toolbar>
+          <div class="center">Login</div>
+        </ons-toolbar>
+
+        <div class="content" style="text-align: center">
+          <h1 style="font-size:50px;">ProChart</h1><br>
+          <form id="loginForm">
+            <p>ユーザー名<p>
+              <input type="text" id="loginName">
+            <p>パスワード</p>
+            <input type="password" id="loginPassword"><br><br>
+            <input type="button" onclick="login();" style="font-size:30px;" value="ログイン">
+          </form>
+          <br><br><br>
+          <ons-button id="signUp-button" style="font-size:30px;">新規登録</ons-button>
+        </div>
+      </ons-page>
+    </ons-template>
+
+    <ons-template id="signUp.html">
+      <ons-page id="signUp-page">
+        <ons-toolbar>
+          <div class="left"><ons-back-button>Login</ons-back-button></div>
+          <div class="center">新規登録</div>
+        </ons-toolbar>
+
+        <div class="content" style="text-align: center">
+          <h1>新規登録</h1>
+          <form id="signUpForm">
+            <p>ユーザー名<p>
+              <input type="text" id="signUpName" value=""><br>
+            <p>パスワード</p>
+            <input type="password" id="signUpPassword" value=""><br><br>
+            <input type="button" onclick="signUp();" value="登録">
+          </form>
+        </div>
+      </ons-page>
+    </ons-template>
+
+    <ons-template id="record.html">
+      <ons-page id="record-page">
+        <ons-toolbar>
+          <div class="center">記録</div>
+          <div class="right"><input type="button" onclick="logout();" value="ログアウト"></div>
+        </ons-toolbar>
+
+        <div class="wrapper">
+          <div class="content" style="text-align: center">
+            <br><br><br>
+            <form id="langForm">
+              <label for="select" style="font-size:30px;">言語</label>
+              <select id="language" onchange="db.show_ele();" style="font-size:30px;">
+                <option value="" selected>選択して下さい</option>
+              </select>
+              <!-- </form> -->
+              <div id="ele" style="font-size:25px;"></div>
+              <!-- <form id="langForm">
+                   <p>言語名<p>
+                  <input type="text" id="langName" value=""><br>
+                  <input type="button" onclick="langUp();" value="登録"> -->
+            </form>
+            <br>
+            <!-- <input type="button" onclick="logout();" value="ログアウト"> -->
+            <!-- <ons-button id="pop-button">Pop page</ons-button> -->
+          </div>
+          <div class="footer">
+            <ons-button id="record-button" class="footer-btn">記録</ons-button>
+            <ons-button id="people-button" class="footer-btn">みんな</ons-button>
+            <ons-button id="myPage-button" class="footer-btn">マイページ</ons-button>
+          </div>
+        </div>
+      </ons-page>
+    </ons-template>
+    
+    <ons-template id="people.html">
+      <ons-page id="people-page">
+        <ons-toolbar>
+          <div class="center">みんな</div>
+          <div class="right"><input type="button" onclick="logout();" value="ログアウト"></div>
+        </ons-toolbar>
+
+        <div class="wrapper">
+          <div class="content" style="text-align: center">
+            <div id="lang"></div>
+          </div>
+          <div class="footer">
+            <ons-button id="record-button" class="footer-btn">記録</ons-button>
+            <ons-button id="people-button" class="footer-btn">みんな</ons-button>
+            <ons-button id="myPage-button" class="footer-btn">マイページ</ons-button>
+          </div>
+        </div>
+      </ons-page>
+    </ons-template>
+    
+    <ons-template id="myPage.html">
+      <ons-page id="my-page">
+        <ons-toolbar>
+          <div class="center">MyPage</div>
+          <div class="right"><input type="button" onclick="logout();" value="ログアウト"></div>
+        </ons-toolbar>
+
+        <div class="wrapper">
+          <div class="content" style="text-align: center">
+            <h1><div class="currentUser"></div></h1>
+          </div>
+          <img src="tetta.jpg" height="400px">
+          <div class="footer">
+            <ons-button id="record-button" class="footer-btn">記録</ons-button>
+            <ons-button id="people-button" class="footer-btn">みんな</ons-button>
+            <ons-button id="myPage-button" class="footer-btn">マイページ</ons-button>
+          </div>
+        </div>
+      </ons-page>
+    </ons-template>
+  </body>
+</html>

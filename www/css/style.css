@@ -1,0 +1,15 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 90vh;
+}
+
+.footer {
+  margin-top: auto;
+  text-align: center;
+}
+
+.footer-btn {
+  width: 31%;
+  height: 10vh;
+}
