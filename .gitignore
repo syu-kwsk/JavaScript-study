@@ -5,3 +5,4 @@
 *.swp
 .vscode/
 typings/
+/www/js/ncmb.js
